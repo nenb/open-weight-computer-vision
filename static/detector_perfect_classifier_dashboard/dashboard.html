@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BBox Results Analysis Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .metric-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .tab {
+            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 5px 5px 0 0;
+        }
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+        .tab button:hover {
+            background-color: #ddd;
+        }
+        .tab button.active {
+            background-color: #ccc;
+        }
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BBox Detection Results Analysis Dashboard</h1>
+        <p>Generated on: 2025-08-08 17:00:42</p>
+
+        <div class="tab">
+            <button class="tablinks active" onclick="openTab(event, 'paligemma2_3b_mix_448_detect_locations')">paligemma2_3b_mix_448_detect_locations</button>
+            <button class="tablinks " onclick="openTab(event, 'paligemma2_3b_mix_448_detect_locations_perfect_classifier')">paligemma2_3b_mix_448_detect_locations_perfect_classifier</button>
+            <button class="tablinks" onclick="openTab(event, 'comparison')">Model Comparison</button>
+        </div>
+
+        <div id="paligemma2_3b_mix_448_detect_locations" class="tabcontent" style="display: block;">
+            <h2>paligemma2_3b_mix_448_detect_locations Analysis</h2>
+
+            <h3>Overview Metrics</h3>
+            <div class="grid">
+                <div class="metric-card">
+                    <div class="metric-label">COCO AP (IoU 0.5:0.95)</div>
+                    <div class="metric-value">0.205</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">AP50 (IoU 0.5)</div>
+                    <div class="metric-value">0.307</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">AP75 (IoU 0.75)</div>
+                    <div class="metric-value">0.218</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Time/Image</div>
+                    <div class="metric-value">4.49s</div>
+                </div>
+            </div>
+
+            <h3>Additional Metrics</h3>
+            <div class="grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Categories</div>
+                    <div class="metric-value">80</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Images</div>
+                    <div class="metric-value">5000</div>
+                </div>
+            </div>
+
+            <h3>Visualizations</h3>
+            <div class="image-grid">
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_category_ap.png" alt="Category AP Performance">
+                </div>
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_iou_metrics.png" alt="IoU Threshold Metrics">
+                </div>
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_size_metrics.png" alt="Size-based Metrics">
+                </div>
+            </div>
+
+            <h3>Top Performing Categories (by AP)</h3>
+            <table>
+                <tr><th>Category</th><th>Average Precision</th></tr>
+                <tr><td>bear</td><td>0.721</td></tr>
+                <tr><td>cat</td><td>0.645</td></tr>
+                <tr><td>dog</td><td>0.601</td></tr>
+                <tr><td>giraffe</td><td>0.525</td></tr>
+                <tr><td>train</td><td>0.518</td></tr>
+                <tr><td>fire hydrant</td><td>0.508</td></tr>
+                <tr><td>airplane</td><td>0.498</td></tr>
+                <tr><td>laptop</td><td>0.492</td></tr>
+                <tr><td>frisbee</td><td>0.423</td></tr>
+                <tr><td>bus</td><td>0.403</td></tr>
+            </table>
+
+            <h3>Bottom Performing Categories (by AP)</h3>
+            <table>
+                <tr><th>Category</th><th>Average Precision</th></tr>
+                <tr><td>knife</td><td>0.054</td></tr>
+                <tr><td>car</td><td>0.052</td></tr>
+                <tr><td>broccoli</td><td>0.047</td></tr>
+                <tr><td>apple</td><td>0.039</td></tr>
+                <tr><td>skis</td><td>0.039</td></tr>
+                <tr><td>traffic light</td><td>0.029</td></tr>
+                <tr><td>backpack</td><td>0.027</td></tr>
+                <tr><td>handbag</td><td>0.017</td></tr>
+                <tr><td>book</td><td>0.016</td></tr>
+                <tr><td>dining table</td><td>0.005</td></tr>
+            </table>
+
+            <h3>IoU Threshold Impact</h3>
+            <p>The IoU (Intersection over Union) threshold determines how strict the evaluation is.
+            Higher thresholds require more precise bounding box alignment with ground truth.</p>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>IoU Threshold</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>AP</td>
+                    <td>0.50:0.95 (averaged)</td>
+                    <td>0.205</td>
+                </tr>
+                <tr>
+                    <td>AP50</td>
+                    <td>0.50</td>
+                    <td>0.307</td>
+                </tr>
+                <tr>
+                    <td>AP75</td>
+                    <td>0.75</td>
+                    <td>0.218</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="paligemma2_3b_mix_448_detect_locations_perfect_classifier" class="tabcontent" style="display: none;">
+            <h2>paligemma2_3b_mix_448_detect_locations_perfect_classifier Analysis</h2>
+
+            <h3>Overview Metrics</h3>
+            <div class="grid">
+                <div class="metric-card">
+                    <div class="metric-label">COCO AP (IoU 0.5:0.95)</div>
+                    <div class="metric-value">0.265</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">AP50 (IoU 0.5)</div>
+                    <div class="metric-value">0.415</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">AP75 (IoU 0.75)</div>
+                    <div class="metric-value">0.274</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Time/Image</div>
+                    <div class="metric-value">5.18s</div>
+                </div>
+            </div>
+
+            <h3>Additional Metrics</h3>
+            <div class="grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Categories</div>
+                    <div class="metric-value">80</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Images</div>
+                    <div class="metric-value">5000</div>
+                </div>
+            </div>
+
+            <h3>Visualizations</h3>
+            <div class="image-grid">
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_perfect_classifier_category_ap.png" alt="Category AP Performance">
+                </div>
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_perfect_classifier_iou_metrics.png" alt="IoU Threshold Metrics">
+                </div>
+                <div>
+                    <img src="paligemma2_3b_mix_448_detect_locations_perfect_classifier_size_metrics.png" alt="Size-based Metrics">
+                </div>
+            </div>
+
+            <h3>Top Performing Categories (by AP)</h3>
+            <table>
+                <tr><th>Category</th><th>Average Precision</th></tr>
+                <tr><td>bear</td><td>0.708</td></tr>
+                <tr><td>cat</td><td>0.697</td></tr>
+                <tr><td>dog</td><td>0.688</td></tr>
+                <tr><td>train</td><td>0.603</td></tr>
+                <tr><td>airplane</td><td>0.573</td></tr>
+                <tr><td>laptop</td><td>0.571</td></tr>
+                <tr><td>fire hydrant</td><td>0.556</td></tr>
+                <tr><td>giraffe</td><td>0.543</td></tr>
+                <tr><td>microwave</td><td>0.495</td></tr>
+                <tr><td>bus</td><td>0.493</td></tr>
+            </table>
+
+            <h3>Bottom Performing Categories (by AP)</h3>
+            <table>
+                <tr><th>Category</th><th>Average Precision</th></tr>
+                <tr><td>carrot</td><td>0.073</td></tr>
+                <tr><td>car</td><td>0.072</td></tr>
+                <tr><td>boat</td><td>0.072</td></tr>
+                <tr><td>backpack</td><td>0.067</td></tr>
+                <tr><td>handbag</td><td>0.058</td></tr>
+                <tr><td>skis</td><td>0.058</td></tr>
+                <tr><td>apple</td><td>0.057</td></tr>
+                <tr><td>broccoli</td><td>0.047</td></tr>
+                <tr><td>traffic light</td><td>0.040</td></tr>
+                <tr><td>book</td><td>0.031</td></tr>
+            </table>
+
+            <h3>IoU Threshold Impact</h3>
+            <p>The IoU (Intersection over Union) threshold determines how strict the evaluation is.
+            Higher thresholds require more precise bounding box alignment with ground truth.</p>
+            <table>
+                <tr>
+                    <th>Metric</th>
+                    <th>IoU Threshold</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>AP</td>
+                    <td>0.50:0.95 (averaged)</td>
+                    <td>0.265</td>
+                </tr>
+                <tr>
+                    <td>AP50</td>
+                    <td>0.50</td>
+                    <td>0.415</td>
+                </tr>
+                <tr>
+                    <td>AP75</td>
+                    <td>0.75</td>
+                    <td>0.274</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="comparison" class="tabcontent">
+            <h2>Model Comparison</h2>
+
+            <h3>Overall Performance</h3>
+            <img src="model_comparison_ap.png" alt="AP Metrics Comparison">
+
+            <h3>Processing Speed</h3>
+            <img src="model_comparison_speed.png" alt="Processing Speed Comparison">
+
+            <h3>Performance by Object Size</h3>
+            <img src="model_comparison_size.png" alt="Size-based Performance">
+
+            <h3>Detailed Metrics Comparison</h3>
+            <table>
+                <tr>
+                    <th>Model</th>
+                    <th>AP</th>
+                    <th>AP50</th>
+                    <th>AP75</th>
+                    <th>Avg Time/Image</th>
+                </tr>
+                <tr>
+                    <td>paligemma2_3b_mix_448_detect_locations</td>
+                    <td>0.205</td>
+                    <td>0.307</td>
+                    <td>0.218</td>
+                    <td>4.49s</td>
+                </tr>
+                <tr>
+                    <td>paligemma2_3b_mix_448_detect_locations_perfect_classifier</td>
+                    <td>0.265</td>
+                    <td>0.415</td>
+                    <td>0.274</td>
+                    <td>5.18s</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+    function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    </script>
+</body>
+</html>

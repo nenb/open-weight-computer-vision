@@ -1,0 +1,36 @@
+[project]
+name = "eval-gemma-cv"
+version = "0.1.0"
+description = "Computer vision with Gemma using FiftyOne"
+authors = [
+    {name = "Nick Byrne", email = "nbyrne@openteams.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "fiftyone>=0.24.0",
+    "pycocotools>=2.0.7",
+    "pillow>=9.0.0",
+    "numpy>=1.21.0",
+    "matplotlib>=3.5.0",
+    "tqdm>=4.64.0",
+    "python-dotenv>=1.0.0",
+    "opencv-python>=4.8.0",
+    "pydantic>=2.0.0",
+    "mlx-vlm>=0.3.2",
+    "numba>=0.59.0",
+    "pyyaml>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+    "ipython>=8.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
